@@ -1,0 +1,23 @@
+    Create user
+sudo mysql -u root -p
+CREATE USER ‘hello’@’%’ IDENTIFIED BY ‘123’;
+
+	  To check user
+SELECT User, Host From mysql.server;
+
+	
+    To grant All Privileges to User
+GRANT ALL PRIVILEGES ON *.* TO ‘hello’@’%’;
+
+	  To check All Privileges
+SHOW GRANTS FOR ‘hello’@’%’;
+
+	  To Delete User
+DROP USER <user_name>, Host From mysql.server;
+
+  	To Change mysql Password Policy
+SHOW VARIABLES LIKE ‘validate_password%’;
+SET GLOBAL validate_password.policy = <as per your choice - LOW_MEDIUM_HIGH>;
+
+    To make this permanent edit MySQL configuration (my.cnf)file and add below settings:
+validate_password.policy= LOW
