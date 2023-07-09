@@ -1,0 +1,21 @@
+    Creating new Database
+
+CREATE DATABASE new_data;
+SHOW DATABASE;
+USE new_data;
+SELECT DATABASE();
+CREATE TABLE students(
+id INT,
+name VARCHAR(20),
+emailid VARCHAR(20)
+);
+DESCRIBE students;    or DESC students;
+INSERT INTO students VALUES (01, “Hema”, “hema123@gmail.com”), (02, “Rekha”, “rekha456@gmail.com”), (03, “Jay”, “jay789@gmail.com”);
+SELECT * FROM students;
+
+	  To Grant database User Permissions
+GRANT ALL PRIVILEGES ON new_data.* to ‘hello’;@’%’;
+SHOW GRANT FOR ‘hello’@’%’;
+
+	  To close mySQL
+exit
