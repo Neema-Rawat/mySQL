@@ -1,0 +1,5 @@
+sudo apt update && sudo apt upgrade
+sudo apt-get install mysql-server
+systemctl is-active mysql
+sudo mysql_secure_installation
+(Now search workbench in your apps and start it)
