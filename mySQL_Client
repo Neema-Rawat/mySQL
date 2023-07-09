@@ -1,0 +1,4 @@
+mySQL Client
+mysql -u hello -h <server_ip> -p
+SHOW DATABASES;
+USE user_data;
