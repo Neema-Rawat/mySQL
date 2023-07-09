@@ -1,0 +1,12 @@
+Create two instances one as mySQL-server and other as mySQL-client
+
+	mySQL-server
+  Installation of mysql
+sudo yum update -y sudo 
+sudo yum install -y mariadb-server
+sudo systemctl enable mariadb
+sudo systemctl start mariadb
+sudo mysql_secure_installation
+
+	Configuring mysql
+mysql -h localhost -u root -p
