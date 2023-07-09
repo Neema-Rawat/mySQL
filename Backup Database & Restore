@@ -1,0 +1,22 @@
+Create another VM for backup
+
+    Login to server
+mysqldump -u root -p <database_name> > mysql_databackup.sql
+
+    Login into my-server VM
+ssh -i key.pem ec2-user@<ip>
+
+(Create a .pem file and store the private_key pf backup_vm in it)
+touch file.pem
+vim file.pem
+scp -i file.pem mysql_databackup.sql ec2-user@<public_ip_backupVM>: /home/ec2-user/<backup_dir>
+
+    Login into backupVM
+(Create directory where you can store the backup)
+mkdir test_backup
+Install mariadb
+mysql -h localhost -u root -p
+create database Data;
+show databases;
+exit
+mysql -u root -p Data < mysql_databackup.sql
