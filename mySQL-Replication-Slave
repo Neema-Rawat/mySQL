@@ -1,4 +1,0 @@
-mySQL-CLIENT
--> install mysql-server 
--> Editing the File
-sudo vim /etc/mysql/mysql.conf.d/mysql

@@ -1,0 +1,29 @@
+mySQL-CLIENT
+-> install mysql-server 
+-> Editing the File
+sudo vim /etc/mysql/mysql.conf.d/mysql
+
+-> change the following
+bind-address = 0.0.0.0
+server-id = 2
+log-bin = /var/log/mysql/mysql-bin.log
+(save & exit)
+
+sudo systemctl restart mysql
+
+(Now login mySQL)
+sudo mySQL -u root -p
+STOP SLAVE;
+RESET SLAVE;
+CHANGE MASTER TO 
+  MASTER_HOST = 'server_ip_address',
+  MASTER_PORT = 3306,
+  MASTER_USER = 'hello',
+  MASTER_PASSWORD = '123',
+  MASTER_LOG_FILE = 'copy_from_master_status',
+  MASTER_LOG_POS = <copy_from_master_status>;
+
+START SLAVE;
+SHOW SLAVE STATUS\G
+
+[Now change or add the database in master-server and replicate it]
